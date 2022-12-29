@@ -80,9 +80,9 @@ services:
     container_name: '${COMPOSE_PROJECT_NAME}_cron_container'
     build: ./containers/cron
     volumes:
-      - ./source/e107:/var/www/e107/
-      - ./logs/cron:/var/log/cron/
-      - ./logs/msmtp:/var/log/msmtp/
+      - ./source:/var/www
+      - ./logs/cron:/var/log/cron
+      - ./logs/msmtp:/var/log/msmtp
     networks:
       - docker_e107_network
     
