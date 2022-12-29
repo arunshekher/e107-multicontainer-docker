@@ -19,8 +19,17 @@ RUN echo "sendmail_path=/usr/bin/msmtp -t\n"\
 >> /usr/local/etc/php/conf.d/php-sendmail.ini
 
 # for mailhog - todo: might need to move up to prevent exit
-RUN echo "host mailhog\nport 1025\n"\
->> /etc/msmtprc
+# RUN echo "host mailhog\nport 1025\n"\
+# >> /etc/msmtprc
+
+RUN echo "host mailhog\n\
+port 1025\n\
+from 'user@domain.com'\n\
+logfile /var/log/msmtp.log" >> /etc/msmtprc
+
+# one more way to print new lines to file
+# arr=( 'line 1' 'line 2' );
+# printf '%s\n' "${arr[@]}" >> greetings.txt
 
 # sendmail symbolic link to msmtp
 RUN ln -s /usr/bin/msmtp /usr/sbin/sendmail
