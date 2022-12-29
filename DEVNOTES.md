@@ -15,7 +15,7 @@
     mariadb container is based on Ubuntu 22.04.1 LTS
 2. Send mail with msmtp directly:
 `    echo -e "Subject: Test Mail\r\n\r\nThis is a test mail, 
-let me know if this works" |msmtp --debug --from from@yourdomain.com -t to@someone.com`
+let me know if this works" |msmtp --debug --from from@yourdomain.com -t to@someone.com `
 3. Send mail with PHP CLI: 
 `    php -r "mail('to@domain.com','Test Mail from PHP', 
 'This is a test mail from PHP, let me know if this works');" `
