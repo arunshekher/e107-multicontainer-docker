@@ -7,7 +7,7 @@ services:
 
   # php apache
   php_apache:
-    build: ./containers/php-apache/php/8.1 # use php_version env variable
+    build: './containers/php-apache/php/${PHP_VERSION}'
     container_name: '${COMPOSE_PROJECT_NAME}_php_apache_container'
     ports:
       - '${WEB_PORT}:80'
