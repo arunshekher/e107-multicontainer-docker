@@ -12,3 +12,5 @@ $headers = "From:" . $from;
 if (mail($to, $subject, $message, $headers)) {
     echo "CRON-DAEMON: Success! test email sent." . PHP_EOL;
 }
+
+// todo: add SMTP and sendmail email tests if possible
