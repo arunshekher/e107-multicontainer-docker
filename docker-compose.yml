@@ -1,0 +1,88 @@
+version: '3.9'
+
+networks:
+  docker_e107_network:
+
+services:
+
+  # php apache
+  php_apache:
+    build: ./containers/php-apache/php/8.1 # use php_version env variable
+    container_name: '${COMPOSE_PROJECT_NAME}_php_apache_container'
+    ports:
+      - '${WEB_PORT}:80'
+    working_dir: /var/www/e107
+    # environment:
+    volumes:
+      - ./source/e107:/var/www/e107
+      # todo: move it to Dockerfile may be 
+      - ./containers/php-apache/apache/sites-enabled:/etc/apache2/sites-enabled
+      # todo move this to to Dockerfile
+      - ./containers/php-apache/php/config/php.ini:/usr/local/etc/php/conf.d/extra-php-config.ini
+      # logs - todo: move to Dockerfile
+      - ./logs/apache:/var/log/apache2/logs/
+    depends_on:
+      mariadb:
+        condition: service_healthy
+    networks:
+      - docker_e107_network
+
+  # mariadb
+  mariadb:
+    image: mariadb:latest # todo: change to fixed version in the container dir
+    container_name: '${COMPOSE_PROJECT_NAME}_mariadb_container'
+    restart: always
+    ports:
+      - '${DB_PORT}:3306'
+    environment:
+      MYSQL_ROOT_PASSWORD: '${MYSQL_ROOT_PASS}'
+      MYSQL_USER: '${MYSQL_USER}'
+      MYSQL_PASSWORD: '${MYSQL_PASS}'
+      MYSQL_DATABASE: '${MYSQL_DB}'
+    volumes:
+      - ./data/mariadb:/var/lib/mysql
+      - ./containers/mariadb/my.cnf:/etc/mysql/conf.d/my.cnf
+    healthcheck:
+      test: mysqladmin ping -h 127.0.0.1 -u root --password=$$MYSQL_ROOT_PASSWORD
+      interval: 5s
+      retries: 5
+    networks:
+      - docker_e107_network
+
+  # mailhog
+  mailhog:
+    image: mailhog/mailhog:v1.0.1
+    container_name: '${COMPOSE_PROJECT_NAME}_mailhog_container'
+    tty: true
+    restart: on-failure
+    ports:
+      - '${MAILHOG_SMTP_PORT}:1025'
+      - '${MAILHOG_WEB_PORT}:8025'
+    networks:
+      - docker_e107_network
+
+  # sshd
+  filesystem:
+    build: ./containers/filesystem
+    container_name: '${COMPOSE_PROJECT_NAME}_filesystem_container'
+    ports:
+      - '${SSH_PORT}:22'
+    working_dir: /var/www/e107
+    environment:
+      SSH_ROOT_PASS: '${SSH_ROOT_PASS}'
+    volumes:
+      - ./source/e107:/var/www/e107
+    networks:
+      - docker_e107_network
+
+  # cron
+  cron:
+    container_name: '${COMPOSE_PROJECT_NAME}_cron_container'
+    build: ./containers/cron
+    volumes:
+      - ./source/e107:/var/www/e107/
+      - ./logs/cron:/var/log/cron/
+      - ./logs/msmtp:/var/log/msmtp/
+    networks:
+      - docker_e107_network
+    

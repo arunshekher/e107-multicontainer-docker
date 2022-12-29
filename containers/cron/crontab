@@ -1,0 +1,1 @@
+*/2 * * * * php /var/www/e107/crontest.php >> /var/log/cron/cron.log 2>&1

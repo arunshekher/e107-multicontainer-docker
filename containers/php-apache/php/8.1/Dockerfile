@@ -1,0 +1,33 @@
+#Debian GNU/Linux 11 (bullseye)
+FROM php:8.1-apache 
+
+RUN a2enmod rewrite
+
+RUN apt-get update && apt-get install -y git unzip zip msmtp
+
+WORKDIR /var/www/e107
+
+COPY --from=mlocati/php-extension-installer /usr/bin/install-php-extensions /usr/local/bin/
+
+RUN install-php-extensions gd pdo_mysql bcmath zip intl opcache exif xdebug
+
+COPY --from=composer:2.0 /usr/bin/composer /usr/local/bin/composer
+
+
+# for mailhog - todo: might need to move up to prevent exit
+RUN echo "sendmail_path=/usr/bin/msmtp -t\n"\
+>> /usr/local/etc/php/conf.d/php-sendmail.ini
+
+# for mailhog - todo: might need to move up to prevent exit
+RUN echo "host mailhog\nport 1025\n"\
+>> /etc/msmtprc
+
+# sendmail symbolic link to msmtp
+RUN ln -s /usr/bin/msmtp /usr/sbin/sendmail
+
+# todo: do it with RUN echo cat etc.
+# # for mailhog
+# - ./docker/mailhog/php-sendmail.ini:/usr/local/etc/php/conf.d/php-sendmail.ini
+# - ./docker/mailhog/msmtprc:/etc/msmtprc
+
+# COPY ../../mailhog/msmtpc
