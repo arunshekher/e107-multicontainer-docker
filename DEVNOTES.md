@@ -14,7 +14,11 @@
 - [ ] make use of a shell script to initialize docker-compose
 - [ ] write the README.md
 - [ ] add arguments in Dockerfiles - php, cron etc to allow diff php versions
-
+- [ ] remove old commented out code from cron startup.sh shell script
+- [ ] update of remove the msmtprc file in the containers/mailhog directory
+- [ ] add 'ServerName' in the virtual host conf file
+- [ ] research and add mailhog logs
+- [ ]
 
 ## Notes
 1. `cat /etc/os-release` to see the distro used by the container image; in an attached terminal
