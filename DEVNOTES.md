@@ -6,6 +6,9 @@
 - install msmtp for mailhog
 - SO: sendmail_path = "/usr/bin/msmtp -C /etc/msmtprc -t --read-envelope-from" <-- doesn't work
 - create an ssh git container for phpstorm to access remotely so use a full blown os
+- change mariadb version to a fixed on rather than later that can break things in future.
+- add php logs
+- add mysql logs
 
 
 ## Notes
