@@ -61,19 +61,6 @@ services:
     networks:
       - docker_e107_network
 
-  # sshd
-  filesystem:
-    build: ./containers/filesystem
-    container_name: '${COMPOSE_PROJECT_NAME}_filesystem_container'
-    ports:
-      - '${SSH_PORT}:22'
-    working_dir: /var/www/e107
-    environment:
-      SSH_ROOT_PASS: '${SSH_ROOT_PASS}'
-    volumes:
-      - ./source/e107:/var/www/e107
-    networks:
-      - docker_e107_network
 
   # cron
   cron:
