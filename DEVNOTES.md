@@ -16,7 +16,7 @@
 - [ ] add arguments in Dockerfiles - php, cron etc to allow diff php versions
 - [ ] remove old commented out code from cron startup.sh shell script
 - [ ] update of remove the msmtprc file in the containers/mailhog directory
-- [ ] add 'ServerName' in the virtual host conf file
+- [x] add 'ServerName' in the virtual host conf file
 - [ ] research and add mailhog logs
 - [x] Add PHP 8.0 Dockerfile
 
