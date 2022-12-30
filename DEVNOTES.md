@@ -19,6 +19,7 @@
 - [x] add 'ServerName' in the virtual host conf file
 - [ ] research and add mailhog logs
 - [x] Add PHP 8.0 Dockerfile
+- [ ] Try to implement PHP-FPM 
 
 ## Notes
 1. `cat /etc/os-release` to see the distro used by the container image; in an attached terminal
