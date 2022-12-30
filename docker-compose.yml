@@ -42,6 +42,7 @@ services:
     volumes:
       - ./data/mariadb:/var/lib/mysql
       - ./containers/mariadb/my.cnf:/etc/mysql/conf.d/my.cnf
+      - ./logs/mariadb:/var/log/mysql/
     healthcheck:
       test: mysqladmin ping -h 127.0.0.1 -u root --password=$$MYSQL_ROOT_PASSWORD
       interval: 5s
