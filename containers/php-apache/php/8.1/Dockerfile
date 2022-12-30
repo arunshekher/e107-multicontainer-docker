@@ -34,9 +34,3 @@ logfile /var/log/msmtp.log" >> /etc/msmtprc
 # sendmail symbolic link to msmtp
 RUN ln -s /usr/bin/msmtp /usr/sbin/sendmail
 
-# todo: do it with RUN echo cat etc.
-# # for mailhog
-# - ./docker/mailhog/php-sendmail.ini:/usr/local/etc/php/conf.d/php-sendmail.ini
-# - ./docker/mailhog/msmtprc:/etc/msmtprc
-
-# COPY ../../mailhog/msmtpc
