@@ -1,14 +1,18 @@
 ## Todo
 
-- move the site enabled config to Dockerfile
-- need to add xdebug
-- need to add a filesystem container with git and ssh
-- install msmtp for mailhog
-- SO: sendmail_path = "/usr/bin/msmtp -C /etc/msmtprc -t --read-envelope-from" <-- doesn't work
-- create an ssh git container for phpstorm to access remotely so use a full blown os
-- change mariadb version to a fixed on rather than later that can break things in future.
-- add php logs
-- add mysql logs
+- [ ] move the site enabled config to Dockerfile
+- [x] need to add xdebug
+- [x] need to add a filesystem container with git and ssh
+- [x] install msmtp for mailhog
+- [x] create an ssh git container for phpstorm to access remotely so use a full blown os
+- [x] change mariadb version to a fixed on rather than later that can break things in future.
+- [ ] add php logs
+- [x] add mysql logs
+- [ ] add xdebug configuration
+- [ ] cleanup and optimize all Dockerfiles
+- [ ] consider using make file
+- [ ] make use of a shell script to initialize docker-compose
+- [ ] write the README.md
 
 
 ## Notes
@@ -27,4 +31,4 @@
     php -r "mail('to@domain.com','Test Mail from PHP', 
     'This is a test mail from PHP, let me know if this works');"
     ```
-4.
+4. SO: `sendmail_path = "/usr/bin/msmtp -C /etc/msmtprc -t --read-envelope-from"` <-- doesn't work
