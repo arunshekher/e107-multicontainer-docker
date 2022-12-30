@@ -13,9 +13,10 @@
 
 ## Notes
 1. `cat /etc/os-release` to see the distro used by the container image; in an attached terminal
-    - mailhog image - Alpine 3.12
-    - php-apache image - debian bullseye
+    - mailhog image - Alpine Linux v3.12
+    - php-apache image - Debian GNU/Linux 11 (bullseye)
     - mariadb image - Ubuntu 22.04.1 LTS
+    - crond image - Alpine Linux v3.17
 2. Send mail with msmtp on terminal :
     ```console    
     echo -e "Subject: Test Mail\r\n\r\nThis is a test mail, 
