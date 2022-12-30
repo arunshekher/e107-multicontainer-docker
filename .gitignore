@@ -1,2 +1,4 @@
 source/e107/
 !logs
+!*.cnf
+!*.ini
