@@ -6,7 +6,7 @@
 - [x] install msmtp for mailhog
 - [x] create an ssh git container for phpstorm to access remotely so use a full blown os
 - [x] change mariadb version to a fixed on rather than later that can break things in future.
-- [ ] add php logs
+- [x] add php logs
 - [x] add mysql logs
 - [ ] add xdebug configuration
 - [ ] cleanup and optimize all Dockerfiles
