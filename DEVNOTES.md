@@ -13,6 +13,7 @@
 - [ ] consider using make file
 - [ ] make use of a shell script to initialize docker-compose
 - [ ] write the README.md
+- [ ] add arguments in Dockerfiles - php, cron etc to allow diff php versions
 
 
 ## Notes
