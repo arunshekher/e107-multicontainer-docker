@@ -12,14 +12,14 @@
 
 
 ## Notes
-1. use cat /etc/os-release in the container terminal to see the os
-    mailhog image is based on
-    php-apache is based on debian bullseye
-    mariadb container is based on Ubuntu 22.04.1 LTS
-2. Send mail with msmtp directly:
+1. `cat /etc/os-release` to see the distro used by the container image; in an attached terminal
+    - mailhog image - Alpine 3.12
+    - php-apache image - debian bullseye
+    - mariadb image - Ubuntu 22.04.1 LTS
+2. Send mail with msmtp on terminal :
 `    echo -e "Subject: Test Mail\r\n\r\nThis is a test mail, 
-let me know if this works" |msmtp --debug --from from@yourdomain.com -t to@someone.com `
-3. Send mail with PHP CLI: 
+let me know if this works" | msmtp --debug --from from@yourdomain.com -t to@someone.com `
+3. Send mail with PHP on terminal: 
 `    php -r "mail('to@domain.com','Test Mail from PHP', 
 'This is a test mail from PHP, let me know if this works');" `
 4.
