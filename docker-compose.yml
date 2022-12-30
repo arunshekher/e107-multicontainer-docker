@@ -29,7 +29,7 @@ services:
 
   # mariadb
   mariadb:
-    image: mariadb:latest # todo: change to fixed version in the container dir
+    image: mariadb:10.9.4-jammy
     container_name: '${COMPOSE_PROJECT_NAME}_mariadb_container'
     restart: always
     ports:
