@@ -20,7 +20,7 @@
 - [ ] research and add mailhog logs
 - [x] Add PHP 8.0 Dockerfile
 - [ ] Try to implement PHP-FPM 
-- [ ] install PHPunit
+- [x] install PHPunit - installing globally is not recommended
 
 ## Notes
 1. `cat /etc/os-release` to see the distro used by the container image; in an attached terminal
@@ -42,8 +42,8 @@
 
 5. Install PHPunit using something like below in Dockerfile:
     ```console
-    RUN curl -O https://phar.phpunit.de/phpunit-6.5.phar
-    RUN chmod +x phpunit-6.5.phar && mv phpunit-6.5.phar /usr/local/bin/phpunit
+    RUN wget -O phpunit https://phar.phpunit.de/phpunit-9.phar
+    RUN chmod +x phpunit && mv phpunit /usr/local/bin/phpunit
     RUN phpunit --version
     ```
 6. 
