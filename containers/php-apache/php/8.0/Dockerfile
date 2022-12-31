@@ -30,4 +30,9 @@ logfile /var/log/msmtp.log" >> /etc/msmtprc
 # sendmail symbolic link to msmtp
 RUN ln -s /usr/bin/msmtp /usr/sbin/sendmail
 
+# install phpunit globally
+RUN wget -O phpunit https://phar.phpunit.de/phpunit-9.phar
+RUN chmod +x phpunit && mv phpunit /usr/local/bin/phpunit
+RUN phpunit --version
+
 # todo: add xdebug and sshd also in this container
