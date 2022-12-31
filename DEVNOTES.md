@@ -20,6 +20,7 @@
 - [ ] research and add mailhog logs
 - [x] Add PHP 8.0 Dockerfile
 - [ ] Try to implement PHP-FPM 
+- [ ] install PHPunit
 
 ## Notes
 1. `cat /etc/os-release` to see the distro used by the container image; in an attached terminal
@@ -38,3 +39,11 @@
     'This is a test mail from PHP, let me know if this works');"
     ```
 4. SO: `sendmail_path = "/usr/bin/msmtp -C /etc/msmtprc -t --read-envelope-from"` <-- doesn't work
+
+5. Install PHPunit using something like below in Dockerfile:
+    ```console
+    RUN curl -O https://phar.phpunit.de/phpunit-6.5.phar
+    RUN chmod +x phpunit-6.5.phar && mv phpunit-6.5.phar /usr/local/bin/phpunit
+    RUN phpunit --version
+    ```
+6. 
