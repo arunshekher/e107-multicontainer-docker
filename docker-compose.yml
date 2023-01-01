@@ -15,12 +15,11 @@ services:
     # environment:
     volumes:
       - ./source/e107:/var/www/e107
-      # todo: move it to Dockerfile may be 
       - ./containers/php-apache/apache/sites-enabled:/etc/apache2/sites-enabled
-      # todo move this to to Dockerfile
+      # php.ini
       - ./containers/php-apache/php/config/php.ini:/usr/local/etc/php/conf.d/z-php.ini
       - ./containers/php-apache/php/config/errors.ini:/usr/local/etc/php/conf.d/z-errors.ini
-      # logs - todo: move to Dockerfile
+      # logs
       - ./logs/apache:/var/log/apache2/logs/
       - ./logs/php:/var/sync/logs/
     depends_on:
