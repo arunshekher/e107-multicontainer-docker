@@ -10,7 +10,7 @@
 - [x] add mysql logs
 - [ ] add xdebug configuration
 - [ ] cleanup and optimize all Dockerfiles
-- [ ] consider using make file
+- [ ] consider using Makefile
 - [ ] make use of a shell script to initialize docker-compose
 - [ ] write the README.md
 - [ ] add arguments in Dockerfiles - php, cron etc to allow diff php versions
@@ -21,6 +21,9 @@
 - [x] Add PHP 8.0 Dockerfile
 - [ ] Try to implement PHP-FPM 
 - [x] install PHPunit - installing globally is not recommended
+- [x] add PHP 5.6
+- [ ] add possibility to declare e107 cron script in .env file and use that in crontab file upon docker-compose up
+
 
 ## Notes
 1. `cat /etc/os-release` to see the distro used by the container image; in an attached terminal
