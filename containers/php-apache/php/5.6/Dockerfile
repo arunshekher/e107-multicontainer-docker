@@ -1,4 +1,4 @@
-# Debian GNU/Linux 11 (bullseye)
+# Debian GNU/Linux 9 (stretch)
 FROM php:5.6-apache
 
 RUN a2enmod rewrite
