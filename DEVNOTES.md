@@ -23,12 +23,14 @@
 - [x] install PHPunit - installing globally is not recommended
 - [x] add PHP 5.6
 - [ ] add possibility to declare e107 cron script in .env file and use that in crontab file upon docker-compose up
+- [ ] move the cron declarations to crontab rather than the shell script and add an example version (crontab.example )in the repo 
+- [ ] let the cron container also use the php version declared in the .env file
 
 
 ## Notes
 1. `cat /etc/os-release` to see the distro used by the container image; in an attached terminal
     - mailhog image - Alpine Linux v3.12
-    - php-apache image - Debian GNU/Linux 11 (bullseye)
+    - php-apache image - Debian GNU/Linux 11 (bullseye), Debian GNU/Linux 9 (stretch)
     - mariadb image - Ubuntu 22.04.1 LTS
     - crond image - Alpine Linux v3.17
 2. Send mail with msmtp on terminal :
