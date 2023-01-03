@@ -58,7 +58,7 @@ services:
     tty: true
     restart: on-failure
     ports:
-      - '${MAILHOG_SMTP_PORT}:1025'
+      - '${MAILHOG_SMTP_PORT}:2587'
       - '${MAILHOG_WEB_PORT}:8025'
     networks:
       - docker_e107_network
@@ -74,4 +74,18 @@ services:
       - ./logs/msmtp:/var/log/msmtp
     networks:
       - docker_e107_network
-    
+
+  # adminer
+  adminer:
+    image: adminer:4.8.1
+    container_name: '${COMPOSE_PROJECT_NAME}_adminer_container'
+    environment:
+      ADMINER_DEFAULT_SERVER: mariadb
+    restart: always
+    ports:
+      - '${ADMINER_WEB_PORT}:8080'
+    links:
+      - mariadb
+    networks:
+      - docker_e107_network    
+      
