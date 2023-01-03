@@ -25,7 +25,8 @@
 - [ ] add possibility to declare e107 cron script in .env file and use that in crontab file upon docker-compose up
 - [ ] move the cron declarations to crontab rather than the shell script and add an example version (crontab.example )in the repo 
 - [ ] let the cron container also use the php version declared in the .env file
-
+- [x] add adminer container
+- [ ] remove phpunit from global location
 
 ## Notes
 1. `cat /etc/os-release` to see the distro used by the container image; in an attached terminal
