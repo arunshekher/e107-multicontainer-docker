@@ -67,7 +67,10 @@ services:
   # cron
   cron:
     container_name: '${COMPOSE_PROJECT_NAME}_cron_container'
-    build: ./containers/cron
+    build: 
+      context: ./containers/cron
+      args:
+        PHP_VERSION: ${PHP_VERSION}
     volumes:
       - ./source:/var/www
       - ./logs/cron:/var/log/cron
