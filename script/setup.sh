@@ -7,10 +7,9 @@ ROOT_PATH="$SCRIPT_PATH/../";
 export $(grep -v '^#' $ROOT_PATH/.env.example | xargs)
 
 # copy .env.example to .env file
-if [ ! -f $ROOT_PATH/.env.txt ]; then
+if [ ! -f $ROOT_PATH/.env ]; then
     cp $ROOT_PATH/.env.example $ROOT_PATH/.env
 fi
-#cp $ROOT_PATH/.env.example $ROOT_PATH/.env
 
 # docker-compose up - hardcoded grep-word for now
 if [ ! "$(docker ps -a | grep $COMPOSE_PROJECT_NAME)" ]; then
