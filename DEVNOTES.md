@@ -27,6 +27,8 @@
 - [ ] let the cron container also use the php version declared in the .env file
 - [x] add adminer container
 - [ ] remove phpunit from global location
+- [ ] add e107 crontab as environment variable
+- [ ] add a shell script for the setup like renaming *.example files to docker-compose expected filenames
 
 ## Notes
 1. `cat /etc/os-release` to see the distro used by the container image; in an attached terminal
