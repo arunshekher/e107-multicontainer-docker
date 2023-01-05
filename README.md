@@ -1,4 +1,5 @@
 # e107 Multi-container Docker Setup
+Things are added and improved upon but stable enough for local development.
 
 ## Usage
 
