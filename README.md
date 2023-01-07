@@ -7,7 +7,7 @@ Things are added and improved upon but stable enough for local development.
 ```shell
 git clone https://github.com/arunshekher/e107-multicontainer-docker.git e107_docker;
 cd e107_docker;
-sh ./script/setup.sh
+sh ./script/setup
 ```
 
 
